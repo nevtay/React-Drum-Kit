@@ -14,13 +14,13 @@
   "plugins": ["react"],
   "rules": {
     "quotes": ["error", "double"],
-    "semi": ["error", "never"]
+    "semi": ["error", "never"],
+    "space-before-function-paren": "warn"
   },
   "overrides": [
     {
-      "files": ".prettierrc",
-      // eslint-disable-line
-      "options": { "parser": "json" }
+      "files": ".prettierrc"
+      // "options": { "parser": "json" }
     }
   ]
 }
