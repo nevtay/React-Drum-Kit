@@ -2,7 +2,8 @@
   "instruments": [
     {
       "id": 1,
-      "name": "Clap"
+      "name": "Clap",
+      "file": "http://localhost:5000/audio/Clap.wav"
     }
   ]
 }
