@@ -15,11 +15,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "server": "json-server --watch db.json --port 3001",
+    "json-server": "json-server --watch db.json --port 5000",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"npm run start\" \"npm run server\" "
+    "dev": "concurrently \"npm start\" \"npm run json-server\" "
   },
   "eslintConfig": {
     "extends": [
@@ -49,5 +49,6 @@
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.22.0",
     "prettier": "^2.2.1"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
