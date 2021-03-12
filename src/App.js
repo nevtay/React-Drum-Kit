@@ -14,6 +14,7 @@ function App() {
     fetchDrumKitItems()
   }, [])
 
+  // render drum kit
   const RenderDrumKit = () =>
     drumKit.map((item) => {
       return (
