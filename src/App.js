@@ -1,13 +1,14 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import "./App.css"
 
 function App() {
+  const [drumKit, setDrumKit] = useState([])
   const fetchClap = async () => {
     const res = await fetch("./instruments")
     const data = await res.json()
-    console.log(data[0])
+    console.log(data)
     const audio2 = await new Audio(data[0].file)
-    await audio2.play()
+    audio2.play()
   }
   return (
     <div>
