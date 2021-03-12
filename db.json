@@ -2,8 +2,48 @@
   "instruments": [
     {
       "id": 1,
+      "name": "Boom",
+      "file": "http://localhost:5000/audio/Boom.wav"
+    },
+    {
+      "id": 2,
       "name": "Clap",
       "file": "http://localhost:5000/audio/Clap.wav"
+    },
+    {
+      "id": 3,
+      "name": "Hi Hat",
+      "file": "http://localhost:5000/audio/HiHat.wav"
+    },
+    {
+      "id": 4,
+      "name": "Kick",
+      "file": "http://localhost:5000/audio/Kick.wav"
+    },
+    {
+      "id": 5,
+      "name": "Open Hat",
+      "file": "http://localhost:5000/audio/OpenHat.wav"
+    },
+    {
+      "id": 6,
+      "name": "Ride",
+      "file": "http://localhost:5000/audio/Ride.wav"
+    },
+    {
+      "id": 7,
+      "name": "Snare",
+      "file": "http://localhost:5000/audio/Snare.wav"
+    },
+    {
+      "id": 8,
+      "name": "Tink",
+      "file": "http://localhost:5000/audio/Tink.wav"
+    },
+    {
+      "id": 9,
+      "name": "Tom",
+      "file": "http://localhost:5000/audio/Tom.wav"
     }
   ]
 }
