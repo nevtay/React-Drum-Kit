@@ -14,19 +14,12 @@ function App() {
     fetchDrumKitItems()
   }, [])
 
-  // const fetchClap = async () => {
-  //   console.log(drumKit)
-  // }
+  const RenderDrumKit = () => drumKit.map((item) => <div key={item.id}>{item.name}</div>)
+
   return (
     <div>
       <h1>React Drum Kit</h1>
-      <button
-        onClick={() => {
-          fetchClap()
-        }}
-      >
-        Clap
-      </button>
+      {RenderDrumKit()}
     </div>
   )
 }
