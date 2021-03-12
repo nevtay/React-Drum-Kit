@@ -14,7 +14,14 @@ function App() {
     fetchDrumKitItems()
   }, [])
 
-  const RenderDrumKit = () => drumKit.map((item) => <div key={item.id}>{item.name}</div>)
+  const RenderDrumKit = () =>
+    drumKit.map((item) => {
+      return (
+        <div key={item.id}>
+          <p>{item.name}</p> <p>{item.keyboardPosition}</p>
+        </div>
+      )
+    })
 
   return (
     <div>
