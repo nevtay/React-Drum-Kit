@@ -4,7 +4,9 @@ import "./App.css"
 function App() {
   const [drumKit, setDrumKit] = useState([])
 
-  // retrieve all instruments from json server when page loads
+  /**
+   * @description fetches instruments from server
+   */
   useEffect(() => {
     const fetchDrumKitItems = async () => {
       const res = await fetch("./instruments")
@@ -14,7 +16,10 @@ function App() {
     fetchDrumKitItems()
   }, [])
 
-  // render drum kit
+  /**
+   *
+   * @description renders drum kit items
+   */
   const RenderDrumKit = () =>
     drumKit.map((item) => {
       return (
