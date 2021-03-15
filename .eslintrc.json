@@ -14,9 +14,9 @@
   "plugins": ["react"],
   "rules": {
     "quotes": ["error", "double"],
-    "semi": ["error", "never"],
-    "space-before-function-paren": "warn",
-    "no-unused-vars": "warn"
+    "semi": [0, "never"],
+    "space-before-function-paren": "off",
+    "no-unused-vars": "off"
   },
   "overrides": [
     {
