@@ -3,6 +3,7 @@ import "./App.css"
 
 function App() {
   const [drumKit, setDrumKit] = useState([])
+  const [key, setKey] = useState([])
 
   /**
    * @description fetches instruments from server
@@ -19,6 +20,7 @@ function App() {
   const playInstrument = (e) =>
     drumKit.map((item) => {
       if (item.keyboardPosition === e.key) {
+        setKey((prev) => [item.keyboardPosition, ...prev])
         const audioFile = new Audio(item.file)
         audioFile.play()
       }
@@ -60,10 +62,20 @@ function App() {
       )
     })
 
+  const RenderKeys = () => {
+    if (key.length > 10) {
+      setKey(key.filter((k, i) => i < 10))
+    }
+    return <p>{key.join(" ")}</p>
+  }
+
   return (
     <div>
       <h1>React Drum Kit</h1>
       {RenderDrumKit()}
+      <h2>Last Five Keys</h2>
+      {key.length > 0 && RenderKeys()}
+      {key.length === 0 && <p>Play something!</p>}
     </div>
   )
 }
