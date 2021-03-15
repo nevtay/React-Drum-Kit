@@ -42,10 +42,9 @@ function App() {
   useEffect(() => {
     if (!drumKit.length) {
       return null
-    } else {
-      window.addEventListener("keydown", (e) => playInstrument(e))
-      return () => window.removeEventListener("keydown", playInstrument)
     }
+    window.addEventListener("keydown", (e) => playInstrument(e))
+    return () => window.removeEventListener("keydown", (e) => playInstrument(e))
   }, [drumKit])
 
   /**
@@ -56,8 +55,7 @@ function App() {
     drumKit.map((item) => {
       return (
         <div key={item.id}>
-          <p onKeyPress={() => console.log("hi")}>{item.name}</p>{" "}
-          <p>{item.keyboardPosition}</p>
+          <p>{item.name}</p> <p>{item.keyboardPosition}</p>
         </div>
       )
     })
