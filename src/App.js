@@ -67,14 +67,14 @@ function App() {
       const previousTenKeys = key.filter((k, i) => i < 10)
       setKey(previousTenKeys)
     }
-    return <p>{key.join(" ")}</p>
+    return <p>{key.join(" > ")}</p>
   }
 
   return (
     <div>
       <h1>React Drum Kit</h1>
       {RenderDrumKit()}
-      <h2>Last Five Keys</h2>
+      <h2>Last Ten Keys</h2>
       {key.length > 0 && RenderKeys()}
       {key.length === 0 && <p>Play something!</p>}
     </div>
