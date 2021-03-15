@@ -7,14 +7,46 @@ function App() {
   /**
    * @description fetches instruments from server
    */
+  const fetchDrumKit = async () => {
+    const x = await fetch("./instruments")
+    const y = await x.json()
+    setDrumKit([...y])
+  }
+
+  /**
+   * @description finds and plays audio file
+   */
+  const playInstrument = (e) =>
+    drumKit.map((item) => {
+      if (item.keyboardPosition === e.key) {
+        const audioFile = new Audio(item.file)
+        audioFile.play()
+      }
+      return null
+    })
+
+  /**
+   * @description fetches instrument metadata
+   */
   useEffect(() => {
-    const fetchDrumKitItems = async () => {
-      const res = await fetch("./instruments")
-      const data = await res.json()
-      setDrumKit(data)
+    try {
+      fetchDrumKit()
+    } catch (err) {
+      throw new Error(err)
     }
-    fetchDrumKitItems()
   }, [])
+
+  /**
+   * @description sets event listener if drum kit has been loaded from server
+   */
+  useEffect(() => {
+    if (!drumKit.length) {
+      return null
+    } else {
+      window.addEventListener("keydown", (e) => playInstrument(e))
+      return () => window.removeEventListener("keydown", playInstrument)
+    }
+  }, [drumKit])
 
   /**
    *
@@ -24,7 +56,8 @@ function App() {
     drumKit.map((item) => {
       return (
         <div key={item.id}>
-          <p>{item.name}</p> <p>{item.keyboardPosition}</p>
+          <p onKeyPress={() => console.log("hi")}>{item.name}</p>{" "}
+          <p>{item.keyboardPosition}</p>
         </div>
       )
     })
