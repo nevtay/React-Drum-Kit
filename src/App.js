@@ -64,7 +64,8 @@ function App() {
 
   const RenderKeys = () => {
     if (key.length > 10) {
-      setKey(key.filter((k, i) => i < 10))
+      const previousTenKeys = key.filter((k, i) => i < 10)
+      setKey(previousTenKeys)
     }
     return <p>{key.join(" ")}</p>
   }
