@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import "./styles/main.css"
+import Keys from "./components/Keys"
 
 function App() {
   const [drumKit, setDrumKit] = useState([])
@@ -15,6 +16,17 @@ function App() {
   }
 
   /**
+   * @description fetches instrument metadata
+   */
+  useEffect(() => {
+    try {
+      fetchDrumKit()
+    } catch (err) {
+      throw new Error(err)
+    }
+  }, [])
+
+  /**
    * @description finds and plays audio file
    */
   const playInstrument = (e) =>
@@ -26,17 +38,6 @@ function App() {
       }
       return null
     })
-
-  /**
-   * @description fetches instrument metadata
-   */
-  useEffect(() => {
-    try {
-      fetchDrumKit()
-    } catch (err) {
-      throw new Error(err)
-    }
-  }, [])
 
   /**
    * @description sets event listener if drum kit has been loaded from server
@@ -53,14 +54,6 @@ function App() {
    *
    * @description renders drum kit items
    */
-  const RenderDrumKit = () =>
-    drumKit.map((item) => {
-      return (
-        <div key={item.id}>
-          <p>{item.name}</p> <p>{item.keyboardPosition}</p>
-        </div>
-      )
-    })
 
   const RenderKeys = () => {
     if (key.length > 10) {
@@ -73,10 +66,9 @@ function App() {
   return (
     <div>
       <h1>React Drum Kit</h1>
-      {RenderDrumKit()}
+      <Keys instruments={drumKit} />
       <h2>Last Ten Keys</h2>
-      {key.length > 0 && RenderKeys()}
-      {key.length === 0 && <p>Play something!</p>}
+      {key.length > 0 ? RenderKeys() : <p>Play something!</p>}
     </div>
   )
 }
