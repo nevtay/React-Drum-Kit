@@ -2,8 +2,9 @@
 import React from "react"
 
 const Key = ({ instrument }) => (
-  <div>
-    <span>{instrument.name}</span> <span>{instrument.keyboardPosition}</span>
+  <div className="instrument-single">
+    <span className="instrument-name">{instrument.name}</span>
+    <span className="instrument-key">{instrument.keyboardPosition}</span>
   </div>
 )
 
