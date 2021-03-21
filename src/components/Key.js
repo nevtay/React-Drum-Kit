@@ -3,7 +3,7 @@ import React from "react"
 
 const Key = ({ instrument }) => (
   <div>
-    <p>{instrument.name}</p> <p>{instrument.keyboardPosition}</p>
+    <span>{instrument.name}</span> <span>{instrument.keyboardPosition}</span>
   </div>
 )
 
