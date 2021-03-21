@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./assets/images/percussion.webp");
+  background-color: whitesmoke;
+  -webkit-filter: opacity(50%) saturate(120%);
+  filter: opacity(50%) saturate(120%);
+}
