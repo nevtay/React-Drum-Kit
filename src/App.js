@@ -66,7 +66,9 @@ function App() {
   return (
     <div>
       <h1>React Drum Kit</h1>
-      <Keys instruments={drumKit} />
+      <div className="instrument-group">
+        <Keys instruments={drumKit} />
+      </div>
       <h2>Last Ten Keys</h2>
       {key.length > 0 ? RenderKeys() : <p>Play something!</p>}
     </div>
