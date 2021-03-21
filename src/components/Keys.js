@@ -3,7 +3,11 @@ import Key from "./Key"
 
 const Keys = ({ instruments }) =>
   instruments.map((instrument) => {
-    return <Key key={instrument.id} instrument={instrument} />
+    return (
+      <div key={instrument.id}>
+        <Key instrument={instrument} />
+      </div>
+    )
   })
 
 export default Keys
