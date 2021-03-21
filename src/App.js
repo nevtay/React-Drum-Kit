@@ -10,9 +10,9 @@ function App() {
    * @description fetches instruments from server
    */
   const fetchDrumKit = async () => {
-    const x = await fetch("./instruments")
-    const y = await x.json()
-    setDrumKit([...y])
+    const res = await fetch("./instruments")
+    const data = await res.json()
+    setDrumKit([...data])
   }
 
   /**
