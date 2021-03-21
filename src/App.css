@@ -10,7 +10,8 @@ body::before {
   width: 100vw;
   height: 100vh;
   background-image: url("./assets/images/percussion.webp");
-  background-color: whitesmoke;
-  -webkit-filter: opacity(50%) saturate(120%);
-  filter: opacity(50%) saturate(120%);
+  background-size: cover;
+  -webkit-filter: opacity(45%) saturate(70%);
+  filter: opacity(45%) saturate(70%);
+  background-color: #444;
 }
