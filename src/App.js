@@ -3,16 +3,16 @@ import "./styles/main.css"
 import Keys from "./components/Keys"
 
 function App() {
-  const [drumKit, setDrumKit] = useState([])
+  const [instruments, setinstruments] = useState([])
   const [key, setKey] = useState([])
 
   /**
    * @description fetches instruments from server
    */
-  const fetchDrumKit = async () => {
+  const fetchinstruments = async () => {
     const res = await fetch("./instruments")
     const data = await res.json()
-    setDrumKit([...data])
+    setinstruments([...data])
   }
 
   /**
@@ -20,7 +20,7 @@ function App() {
    */
   useEffect(() => {
     try {
-      fetchDrumKit()
+      fetchinstruments()
     } catch (err) {
       throw new Error(err)
     }
@@ -30,7 +30,7 @@ function App() {
    * @description finds and plays audio file
    */
   const playInstrument = (e) =>
-    drumKit.map((item) => {
+    instruments.map((item) => {
       if (item.keyboardPosition === e.key) {
         setKey((prev) => [item.keyboardPosition, ...prev])
         const audioFile = new Audio(item.file)
@@ -43,12 +43,12 @@ function App() {
    * @description sets event listener if drum kit has been loaded from server
    */
   useEffect(() => {
-    if (!drumKit.length) {
+    if (!instruments.length) {
       return null
     }
     window.addEventListener("keydown", (e) => playInstrument(e))
     return () => window.removeEventListener("keydown", (e) => playInstrument(e))
-  }, [drumKit])
+  }, [instruments])
 
   /**
    *
@@ -67,7 +67,7 @@ function App() {
     <div>
       <h1>React Drum Kit</h1>
       <div className="instrument-group">
-        <Keys instruments={drumKit} />
+        <Keys instruments={instruments} />
       </div>
       <h2>Last Ten Keys</h2>
       {key.length > 0 ? RenderKeys() : <p>Play something!</p>}
