@@ -8,6 +8,10 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  font-size: 100%;
+}
+
 body::before {
   content: "";
   position: absolute;
@@ -18,4 +22,24 @@ body::before {
   -webkit-filter: opacity(45%) saturate(70%);
   filter: opacity(45%) saturate(70%);
   background-color: #444;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 4.209rem;
+}
+
+h2 {
+  font-size: 3.157rem;
+}
+
+h3 {
+  font-size: 2.369rem;
+}
+
+h4 {
+  font-size: 1.777rem;
 }
