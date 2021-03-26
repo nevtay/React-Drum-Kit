@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body::before {
   content: "";
   position: absolute;
@@ -31,4 +35,11 @@ body::before {
   border: 2px solid;
   margin: 2.5px;
   padding: 10px 15px;
+}
+
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  min-height: 100vh;
+  padding: 0 5vw;
 }
