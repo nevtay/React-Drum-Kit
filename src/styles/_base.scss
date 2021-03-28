@@ -22,6 +22,7 @@ body::before {
   -webkit-filter: opacity(45%) saturate(70%);
   filter: opacity(45%) saturate(70%);
   background-color: #444;
+  z-index: -1;
 }
 
 p {
