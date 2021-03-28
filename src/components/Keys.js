@@ -18,16 +18,11 @@ const Keys = ({ instruments, setKeys }) => {
 
   const handlePlayedKey = (e) => {
     let targetElement
+    let timeout
     if (validKeys.includes(e.key)) {
       targetElement = document.querySelector(`#${e.key}`)
-      targetElement.style.background = "black"
-    } else {
-      return
+      console.log(targetElement)
     }
-    setTimeout(() => {
-      targetElement.style.background = "none"
-    }, 1000)
-    return
   }
 
   /**
