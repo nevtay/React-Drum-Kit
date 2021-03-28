@@ -6,7 +6,7 @@ const KeyHistory = ({ keys = [] }) => {
   useEffect(() => {
     const lastTenKeys = keys.filter((k, i) => i < 10)
     setCurrentKeys([...lastTenKeys])
-  }, [currentKeys])
+  }, [])
 
   return (
     <>
