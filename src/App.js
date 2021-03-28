@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>React Drum Kit</h1>
+      <h1 className="title">React Drum Kit</h1>
       <div className="instrument-group">
         <Keys instruments={instruments} />
       </div>
