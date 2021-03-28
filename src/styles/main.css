@@ -25,26 +25,6 @@ body::before {
   z-index: -1;
 }
 
-p {
-  font-size: 1.6rem;
-}
-
-h1 {
-  font-size: 4.209rem;
-}
-
-h2 {
-  font-size: 3.157rem;
-}
-
-h3 {
-  font-size: 2.369rem;
-}
-
-h4 {
-  font-size: 1.777rem;
-}
-
 .instrument-group {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -86,4 +66,28 @@ h4 {
   align-items: center;
   min-height: 100vh;
   padding: 0 5vw;
+}
+
+.title {
+  text-align: center;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 4.209rem;
+}
+
+h2 {
+  font-size: 3.157rem;
+}
+
+h3 {
+  font-size: 2.369rem;
+}
+
+h4 {
+  font-size: 1.777rem;
 }
