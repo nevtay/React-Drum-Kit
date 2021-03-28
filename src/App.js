@@ -27,35 +27,22 @@ function App() {
     }
   }, [])
 
-  /**
-   * @description finds and plays audio file
-   */
-  const playInstrument = (e) =>
-    instruments.map((item) => {
-      if (item.keyboardPosition === e.key) {
-        setKeys((prev) => [item.keyboardPosition, ...prev])
-        const audioFile = new Audio(item.file)
-        audioFile.play()
-      }
-      return null
-    })
-
-  /**
-   * @description sets event listener if drum kit has been loaded from server
-   */
-  useEffect(() => {
-    if (!instruments.length) {
-      return null
-    }
-    window.addEventListener("keydown", (e) => playInstrument(e))
-    return () => window.removeEventListener("keydown", (e) => playInstrument(e))
-  }, [instruments])
+  // /**
+  //  * @description sets event listener if drum kit has been loaded from server
+  //  */
+  // useEffect(() => {
+  //   if (!instruments.length) {
+  //     return null
+  //   }
+  //   window.addEventListener("keydown", (e) => playInstrument(e))
+  //   return () => window.removeEventListener("keydown", (e) => playInstrument(e))
+  // }, [instruments])
 
   return (
     <div className="container">
       <h1 className="title">React Drum Kit</h1>
       <div className="instrument-group">
-        <Keys instruments={instruments} />
+        <Keys instruments={instruments} setKeys={setKeys} />
       </div>
       <KeyHistory keys={keys} />
     </div>
