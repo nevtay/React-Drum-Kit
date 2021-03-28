@@ -27,17 +27,6 @@ function App() {
     }
   }, [])
 
-  // /**
-  //  * @description sets event listener if drum kit has been loaded from server
-  //  */
-  // useEffect(() => {
-  //   if (!instruments.length) {
-  //     return null
-  //   }
-  //   window.addEventListener("keydown", (e) => playInstrument(e))
-  //   return () => window.removeEventListener("keydown", (e) => playInstrument(e))
-  // }, [instruments])
-
   return (
     <div className="container">
       <h1 className="title">React Drum Kit</h1>
