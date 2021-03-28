@@ -2,7 +2,7 @@
 import React from "react"
 
 const Key = ({ instrument = {} }) => (
-  <div className="instrument-single">
+  <div id={`${instrument.keyboardPosition}`} className="instrument-single">
     <span className="instrument-name">{instrument.name}</span>
     <span className="instrument-key">{instrument.keyboardPosition}</span>
   </div>
