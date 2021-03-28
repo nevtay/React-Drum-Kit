@@ -50,6 +50,15 @@ body::before {
     min-width: 10rem;
   }
 }
+.key-history-group {
+  margin: 3rem 0 0 0;
+  text-align: center;
+}
+
+.key-history-title {
+  margin-bottom: 1.5rem;
+}
+
 .container {
   display: flex;
   flex-flow: column wrap;
