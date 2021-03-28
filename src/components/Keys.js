@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import Key from "./Key"
 
 const Keys = ({ instruments, setKeys }) => {
+  const validKeys = instruments.map((instrument) => instrument.keyboardPosition)
   /**
    * @description finds and plays audio file, and updates list of keys pressed
    */
@@ -15,6 +16,20 @@ const Keys = ({ instruments, setKeys }) => {
       return null
     })
 
+  const handlePlayedKey = (e) => {
+    let targetElement
+    if (validKeys.includes(e.key)) {
+      targetElement = document.querySelector(`#${e.key}`)
+      targetElement.style.background = "black"
+    } else {
+      return
+    }
+    setTimeout(() => {
+      targetElement.style.background = "none"
+    }, 1000)
+    return
+  }
+
   /**
    * @description sets "keydown" event listener if instruments have been loaded from server
    */
@@ -22,7 +37,10 @@ const Keys = ({ instruments, setKeys }) => {
     if (!instruments.length) {
       return null
     }
-    window.addEventListener("keydown", (e) => playInstrument(e))
+    window.addEventListener("keydown", (e) => {
+      playInstrument(e)
+      handlePlayedKey(e)
+    })
     return () => window.removeEventListener("keydown", (e) => playInstrument(e))
   }, [instruments])
 
