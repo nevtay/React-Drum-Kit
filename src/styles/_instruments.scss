@@ -13,6 +13,13 @@
   align-items: center;
   justify-content: center;
   border: 0.2rem solid;
-  height: 10rem;
-  width: 10rem;
+  height: 7.5rem;
+  min-width: 7.5rem;
+}
+
+@media screen and (min-width: 76.8rem) {
+  .instrument-single {
+    height: 10rem;
+    min-width: 10rem;
+  }
 }
