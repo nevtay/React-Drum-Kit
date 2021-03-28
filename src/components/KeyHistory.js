@@ -6,10 +6,14 @@ const KeyHistory = ({ keys = [] }) => {
     .reverse()
     .join(" > ")
   return (
-    <>
-      <h2>Last Ten Keys</h2>
-      {keys.length > 0 ? <p>{showLast10Keys}</p> : <p>Play something!</p>}
-    </>
+    <div className="key-history-group">
+      <h2 className="key-history-title">Last Ten Keys</h2>
+      {keys.length > 0 ? (
+        <p className="key-history-display">{showLast10Keys}</p>
+      ) : (
+        <p>Play something!</p>
+      )}
+    </div>
   )
 }
 
