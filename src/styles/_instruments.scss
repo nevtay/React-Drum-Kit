@@ -33,3 +33,26 @@
 .key-history-title {
   margin-bottom: 1.5rem;
 }
+
+.playing {
+  -webkit-animation: playing 100ms linear forwards;
+  animation: playing 100ms linear forwards;
+}
+
+@-webkit-keyframes playing {
+  0% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes playing {
+  0% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
