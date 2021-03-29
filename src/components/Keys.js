@@ -18,10 +18,16 @@ const Keys = ({ instruments, setKeys }) => {
 
   const handlePlayedKey = (e) => {
     let targetElement
-    let timeout
     if (validKeys.includes(e.key)) {
       targetElement = document.querySelector(`#${e.key}`)
-      console.log(targetElement)
+      targetElement.classList.add("playing")
+      targetElement.addEventListener("animationend", function () {
+        targetElement.classList.remove("playing")
+      })
+      targetElement.removeEventListener("animationend", function () {
+        targetElement.classList.remove("playing")
+      })
+      // }
     }
   }
 
