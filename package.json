@@ -19,8 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"npm run sass:watch\" \"npm start\" ",
-    "prod": "concurrently \"npm run json-server\" build "
+    "dev": "concurrently \"npm run sass:watch\" \"npm start\" "
   },
   "eslintConfig": {
     "extends": [
