@@ -7,7 +7,6 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "concurrently": "^6.0.0",
-    "json-server": "^0.16.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
@@ -20,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"npm run sass:watch\" \"npm run json-server\" \"npm start\" ",
+    "dev": "concurrently \"npm run sass:watch\" \"npm start\" ",
     "prod": "concurrently \"npm run json-server\" build "
   },
   "eslintConfig": {
@@ -48,6 +47,5 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "prettier": "^2.2.1"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
