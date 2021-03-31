@@ -11,7 +11,7 @@ function App() {
    * @description fetches instruments from server
    */
   const fetchinstruments = async () => {
-    const res = await fetch("./instruments")
+    const res = await fetch("./db.json")
     const data = await res.json()
     setinstruments([...data])
   }
