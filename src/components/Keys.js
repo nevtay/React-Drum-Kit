@@ -9,12 +9,20 @@ const Keys = ({ instruments, setKeys }) => {
   const playInstrument = (e) =>
     instruments.map((item) => {
       if (item.keyboardPosition === e.key) {
-        setKeys((prev) => [item.keyboardPosition, ...prev])
         const audioFile = new Audio(item.file)
         audioFile.play()
       }
       return null
     })
+
+  const updateKeysHistory = (e) => {
+    instruments.map((item) => {
+      if (item.keyboardPosition === e.key) {
+        setKeys((prev) => [item.keyboardPosition, ...prev])
+      }
+      return null
+    })
+  }
 
   const handlePlayedKey = (e) => {
     let targetElement
@@ -40,9 +48,15 @@ const Keys = ({ instruments, setKeys }) => {
     }
     window.addEventListener("keydown", (e) => {
       playInstrument(e)
+      updateKeysHistory(e)
       handlePlayedKey(e)
     })
-    return () => window.removeEventListener("keydown", (e) => playInstrument(e))
+    return () =>
+      window.removeEventListener("keydown", (e) => {
+        playInstrument(e)
+        updateKeysHistory(e)
+        handlePlayedKey(e)
+      })
   }, [instruments])
 
   return instruments.map((instrument) => {
