@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Boom",
+    "keyboardPosition": "a",
+    "file": "./audio/Boom.wav"
+  },
+  {
+    "id": 2,
+    "name": "Clap",
+    "keyboardPosition": "s",
+    "file": "./audio/Clap.wav"
+  },
+  {
+    "id": 3,
+    "name": "Hi Hat",
+    "keyboardPosition": "d",
+    "file": "./audio/HiHat.wav"
+  },
+  {
+    "id": 4,
+    "name": "Kick",
+    "keyboardPosition": "f",
+    "file": "./audio/Kick.wav"
+  },
+  {
+    "id": 5,
+    "name": "Open Hat",
+    "keyboardPosition": "g",
+    "file": "./audio/OpenHat.wav"
+  },
+  {
+    "id": 6,
+    "name": "Ride",
+    "keyboardPosition": "h",
+    "file": "./audio/Ride.wav"
+  },
+  {
+    "id": 7,
+    "name": "Snare",
+    "keyboardPosition": "j",
+    "file": "./audio/Snare.wav"
+  },
+  {
+    "id": 8,
+    "name": "Tink",
+    "keyboardPosition": "k",
+    "file": "./audio/Tink.wav"
+  },
+  {
+    "id": 9,
+    "name": "Tom",
+    "keyboardPosition": "l",
+    "file": "./audio/Tom.wav"
+  }
+]
