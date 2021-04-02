@@ -3,17 +3,16 @@ import Key from "./Key"
 
 const Keys = ({ instruments, setKeys }) => {
   const validKeys = instruments.map((instrument) => instrument.keyboardPosition)
+  const instrumentKeyPair = instruments.reduce((obj, item) => {
+    obj[item.keyboardPosition] = new Audio(item.file)
+    return obj
+  }, {})
+
   /**
    * @description finds and plays audio file, and updates list of keys pressed
    */
   const playInstrument = (e) =>
-    instruments.map((item) => {
-      if (item.keyboardPosition === e.key) {
-        const audioFile = new Audio(item.file)
-        audioFile.play()
-      }
-      return null
-    })
+    instrumentKeyPair[e.key] ? instrumentKeyPair[e.key].play() : null
 
   const updateKeysHistory = (e) => {
     instruments.map((item) => {
