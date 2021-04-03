@@ -10,6 +10,8 @@ const Key = ({ instrument = {} }) => {
     el = document.querySelector(`#${instrument.keyboardPosition}p`)
     document.addEventListener("keydown", (e) => {
       if (e.key === instrument.keyboardPosition) {
+        el.pause()
+        el.currentTime = 0
         el.play()
       }
     })
@@ -17,7 +19,11 @@ const Key = ({ instrument = {} }) => {
   }, [instrument])
   return (
     <div id={`${instrument.keyboardPosition}`} className="instrument-single">
-      <audio id={instrument.keyboardPosition + "p"} src={instrument.file} controls />
+      <audio
+        id={instrument.keyboardPosition + "p"}
+        src={instrument.file}
+        preload="auto"
+      />
       <span className="instrument-name">{instrument.name}</span>
       <kbd className="instrument-key">{instrument.keyboardPosition}</kbd>
     </div>
