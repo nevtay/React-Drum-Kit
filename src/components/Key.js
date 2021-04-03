@@ -15,7 +15,6 @@ const Key = ({ instrument = {} }) => {
         el.play()
       }
     })
-    el.addEventListener("play", () => console.log("playing!"))
   }, [instrument])
   return (
     <div id={`${instrument.keyboardPosition}`} className="instrument-single">
