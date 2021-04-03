@@ -19,7 +19,7 @@ const Key = ({ instrument = {} }) => {
     <div id={`${instrument.keyboardPosition}`} className="instrument-single">
       <audio id={instrument.keyboardPosition + "p"} src={instrument.file} controls />
       <span className="instrument-name">{instrument.name}</span>
-      <span className="instrument-key">{instrument.keyboardPosition}</span>
+      <kbd className="instrument-key">{instrument.keyboardPosition}</kbd>
     </div>
   )
 }
