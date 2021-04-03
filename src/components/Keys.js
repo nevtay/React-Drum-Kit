@@ -1,18 +1,8 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Key from "./Key"
 
 const Keys = ({ instruments, setKeys }) => {
   const validKeys = [...instruments].map((instrument) => instrument.keyboardPosition)
-  const instrumentKeyPair = [...instruments].reduce((obj, item) => {
-    obj[item.keyboardPosition] = item.file
-    return obj
-  }, {})
-
-  /**
-   * @description finds and plays audio file, and updates list of keys pressed
-   */
-  const playInstrument = (e) =>
-    instrumentKeyPair[e.key] ? new Audio(instrumentKeyPair[e.key]).play() : null
 
   const updateKeysHistory = (e) => {
     instruments.map((item) => {
@@ -46,13 +36,13 @@ const Keys = ({ instruments, setKeys }) => {
       return null
     }
     window.addEventListener("keydown", (e) => {
-      playInstrument(e)
+      // playInstrument(e)
       updateKeysHistory(e)
       handlePlayedKey(e)
     })
     return () =>
       window.removeEventListener("keydown", (e) => {
-        playInstrument(e)
+        // playInstrument(e)
         updateKeysHistory(e)
         handlePlayedKey(e)
       })
