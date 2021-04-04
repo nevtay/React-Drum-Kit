@@ -91,9 +91,8 @@ body::before {
 }
 
 footer {
-  margin-top: auto;
-  padding-bottom: 4rem;
-  flex-shrink: 10;
+  position: absolute;
+  bottom: 3rem;
 }
 
 p {
@@ -119,7 +118,6 @@ h4 {
 .title {
   position: relative;
   text-align: center;
-  margin-top: auto;
   margin-bottom: 3rem;
 }
 
