@@ -3,6 +3,12 @@ import React, { useEffect } from "react"
 
 const Key = ({ instrument = {} }) => {
   let el
+  const playInstrument = () => {
+    el.pause()
+    el.currentTime = 0
+    el.play()
+  }
+
   useEffect(() => {
     if (instrument.size === 0) {
       return
@@ -10,9 +16,22 @@ const Key = ({ instrument = {} }) => {
     el = document.querySelector(`#${instrument.keyboardPosition}p`)
     document.addEventListener("keydown", (e) => {
       if (e.key === instrument.keyboardPosition) {
-        el.pause()
-        el.currentTime = 0
-        el.play()
+        playInstrument()
+      }
+    })
+  }, [instrument])
+
+  useEffect(() => {
+    if (instrument.size === 0) {
+      return
+    }
+    document.addEventListener("click", (e) => {
+      if (
+        e.target.id === instrument.keyboardPosition ||
+        e.target.innerText === instrument.name ||
+        e.target.innerText === instrument.keyboardPosition
+      ) {
+        playInstrument()
       }
     })
   }, [instrument])
