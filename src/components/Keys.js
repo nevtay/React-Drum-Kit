@@ -24,7 +24,6 @@ const Keys = ({ instruments, setKeys }) => {
       targetElement.removeEventListener("animationend", function () {
         targetElement.classList.remove("playing")
       })
-      // }
     }
   }
 
