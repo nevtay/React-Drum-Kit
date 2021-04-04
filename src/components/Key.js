@@ -24,25 +24,8 @@ const Key = ({ instrument = {}, setKeys }) => {
     )
   }
 
-  const updateKeysHistory = (e) => {
-    if (e.key === instrument.keyboardPosition) {
-      setKeys((prev) => [instrument.keyboardPosition, ...prev])
-    }
-    return null
-  }
-
-  /**
-   * @description sets "keydown" event listener if instruments have been loaded from server
-   */
-  useEffect(() => {
-    if (instrument.size === 0) {
-      return
-    }
-    window.addEventListener("keydown", (e) => {
-      updateKeysHistory(e)
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [instrument])
+  const updateKeysHistory = (keyboardPosition) =>
+    setKeys((prev) => [instrument.keyboardPosition, ...prev])
 
   let el
   useEffect(() => {
@@ -54,6 +37,7 @@ const Key = ({ instrument = {}, setKeys }) => {
     document.addEventListener("keydown", (e) => {
       if (e.key === instrument.keyboardPosition) {
         handlePlayedKey(instrument.keyboardPosition)
+        updateKeysHistory(instrument.keyboardPosition)
         playInstrument(el)
       }
     })
@@ -71,6 +55,7 @@ const Key = ({ instrument = {}, setKeys }) => {
         e.target.innerText === instrument.keyboardPosition
       ) {
         handlePlayedKey(instrument.keyboardPosition)
+        updateKeysHistory(instrument.keyboardPosition)
         playInstrument(el)
       }
     })
