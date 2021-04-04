@@ -2,10 +2,10 @@
 import React, { useEffect } from "react"
 
 const Key = ({ instrument = {}, setKeys }) => {
-  const playInstrument = (instrument) => {
-    instrument.pause()
-    instrument.currentTime = 0
-    instrument.play()
+  const playInstrument = (inst) => {
+    inst.pause()
+    inst.currentTime = 0
+    inst.play()
   }
 
   const removeAnimationFromElement = (element) => {
