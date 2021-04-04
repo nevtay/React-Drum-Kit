@@ -42,7 +42,7 @@ body::before {
   justify-content: center;
   border: 0.2rem solid;
   height: 8rem;
-  min-width: 8rem;
+  max-width: 33vw;
   padding: 0.5rem;
 }
 
@@ -92,8 +92,8 @@ body::before {
 }
 
 footer {
-  position: absolute;
-  bottom: 3rem;
+  margin-top: auto;
+  margin-bottom: 2rem;
 }
 
 p {
@@ -120,6 +120,7 @@ h4 {
   position: relative;
   text-align: center;
   margin-bottom: 3rem;
+  margin-top: auto;
 }
 
 .instrument-name {
