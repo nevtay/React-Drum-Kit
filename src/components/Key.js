@@ -3,7 +3,6 @@ import React, { useEffect } from "react"
 
 const Key = ({ instrument = {}, setKeys }) => {
   const playInstrument = (inst) => {
-    inst.pause()
     inst.currentTime = 0
     inst.play()
   }
