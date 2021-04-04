@@ -63,13 +63,14 @@ const Key = ({ instrument = {}, setKeys }) => {
     if (instrument.size === 0) {
       return
     }
+    el = document.querySelector(`#${instrument.keyboardPosition}p`)
     document.addEventListener("click", (e) => {
       if (
         e.target.id === instrument.keyboardPosition ||
         e.target.innerText === instrument.name ||
         e.target.innerText === instrument.keyboardPosition
       ) {
-        playInstrument()
+        playInstrument(el)
       }
     })
   }, [instrument])
