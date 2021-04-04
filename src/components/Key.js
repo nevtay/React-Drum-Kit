@@ -3,10 +3,26 @@ import React, { useEffect } from "react"
 
 const Key = ({ instrument = {} }) => {
   let el
-  const playInstrument = () => {
-    el.pause()
-    el.currentTime = 0
-    el.play()
+  let targetElement
+
+  const playInstrument = (instrument) => {
+    instrument.pause()
+    instrument.currentTime = 0
+    instrument.play()
+  }
+
+  const addAnimationToElement = (element) => {
+    element.classList.remove("playing")
+  }
+
+  const handlePlayedKey = (e) => {
+    targetElement = document.querySelector(`#${e.key}`)
+    targetElement.classList.add("playing")
+    targetElement.addEventListener("animationend", addAnimationToElement(targetElement))
+    targetElement.removeEventListener(
+      "animationend",
+      addAnimationToElement(targetElement)
+    )
   }
 
   useEffect(() => {
@@ -16,7 +32,8 @@ const Key = ({ instrument = {} }) => {
     el = document.querySelector(`#${instrument.keyboardPosition}p`)
     document.addEventListener("keydown", (e) => {
       if (e.key === instrument.keyboardPosition) {
-        playInstrument()
+        handlePlayedKey(e)
+        playInstrument(el)
       }
     })
   }, [instrument])
