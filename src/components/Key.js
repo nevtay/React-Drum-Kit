@@ -13,8 +13,8 @@ const Key = ({ instrument = {}, setKeys }) => {
   }
 
   let targetElement
-  const handlePlayedKey = (e) => {
-    targetElement = document.querySelector(`#${e.key}`)
+  const handlePlayedKey = (keyboardPosition) => {
+    targetElement = document.querySelector(`#${keyboardPosition}`)
     targetElement.classList.add("playing")
     targetElement.addEventListener("animationend", () =>
       removeAnimationFromElement(targetElement)
@@ -53,7 +53,7 @@ const Key = ({ instrument = {}, setKeys }) => {
     el = document.querySelector(`#${instrument.keyboardPosition}p`)
     document.addEventListener("keydown", (e) => {
       if (e.key === instrument.keyboardPosition) {
-        handlePlayedKey(e)
+        handlePlayedKey(instrument.keyboardPosition)
         playInstrument(el)
       }
     })
@@ -70,6 +70,7 @@ const Key = ({ instrument = {}, setKeys }) => {
         e.target.innerText === instrument.name ||
         e.target.innerText === instrument.keyboardPosition
       ) {
+        handlePlayedKey(instrument.keyboardPosition)
         playInstrument(el)
       }
     })
