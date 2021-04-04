@@ -19,7 +19,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "concurrently \"npm run sass:watch\" \"npm start\" ",
-    "deploy": "npm run build"
+    "preview": "netlify build && netlify deploy",
+    "deploy": "netlify build && netlify deploy --prod"
   },
   "eslintConfig": {
     "extends": [
