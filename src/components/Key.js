@@ -25,7 +25,7 @@ const Key = ({ instrument = {}, setKeys }) => {
   }
 
   const updateKeysHistory = (keyboardPosition) =>
-    setKeys((prev) => [instrument.keyboardPosition, ...prev])
+    setKeys((prev) => [keyboardPosition, ...prev])
 
   let el
   useEffect(() => {
