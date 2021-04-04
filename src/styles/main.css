@@ -87,7 +87,8 @@ body::before {
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 footer {
