@@ -13,20 +13,6 @@ const Keys = ({ instruments, setKeys }) => {
     })
   }
 
-  const handlePlayedKey = (e) => {
-    let targetElement
-    if (validKeys.includes(e.key)) {
-      targetElement = document.querySelector(`#${e.key}`)
-      targetElement.classList.add("playing")
-      targetElement.addEventListener("animationend", function () {
-        targetElement.classList.remove("playing")
-      })
-      targetElement.removeEventListener("animationend", function () {
-        targetElement.classList.remove("playing")
-      })
-    }
-  }
-
   /**
    * @description sets "keydown" event listener if instruments have been loaded from server
    */
@@ -35,16 +21,8 @@ const Keys = ({ instruments, setKeys }) => {
       return null
     }
     window.addEventListener("keydown", (e) => {
-      // playInstrument(e)
       updateKeysHistory(e)
-      handlePlayedKey(e)
     })
-    return () =>
-      window.removeEventListener("keydown", (e) => {
-        // playInstrument(e)
-        updateKeysHistory(e)
-        handlePlayedKey(e)
-      })
   }, [instruments])
 
   return instruments.map((instrument) => {
