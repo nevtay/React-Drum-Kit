@@ -2,29 +2,29 @@
 import React, { useEffect } from "react"
 
 const Key = ({ instrument = {} }) => {
-  let el
-  let targetElement
-
   const playInstrument = (instrument) => {
     instrument.pause()
     instrument.currentTime = 0
     instrument.play()
   }
 
-  const addAnimationToElement = (element) => {
+  const removeAnimationFromElement = (element) => {
     element.classList.remove("playing")
   }
 
+  let targetElement
   const handlePlayedKey = (e) => {
     targetElement = document.querySelector(`#${e.key}`)
     targetElement.classList.add("playing")
-    targetElement.addEventListener("animationend", addAnimationToElement(targetElement))
-    targetElement.removeEventListener(
-      "animationend",
-      addAnimationToElement(targetElement)
+    targetElement.addEventListener("animationend", () =>
+      removeAnimationFromElement(targetElement)
+    )
+    targetElement.removeEventListener("animationend", () =>
+      removeAnimationFromElement(targetElement)
     )
   }
 
+  let el
   useEffect(() => {
     if (instrument.size === 0) {
       return
@@ -52,6 +52,7 @@ const Key = ({ instrument = {} }) => {
       }
     })
   }, [instrument])
+
   return (
     <div id={`${instrument.keyboardPosition}`} className="instrument-single">
       <audio
