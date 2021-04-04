@@ -20,6 +20,12 @@ function App() {
    * @description fetches instrument metadata
    */
   useEffect(() => {
+    let vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty("--vh", `${vh}px`)
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty("--vh", `${vh}px`)
+    })
     try {
       fetchinstruments()
     } catch (err) {
@@ -34,6 +40,16 @@ function App() {
         <Keys instruments={instruments} setKeys={setKeys} />
       </div>
       <KeyHistory keys={keys} />
+      <footer>
+        Icons made by{" "}
+        <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">
+          Icongeek26
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </footer>
     </div>
   )
 }
