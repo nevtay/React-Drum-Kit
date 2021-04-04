@@ -12,9 +12,8 @@ const Key = ({ instrument = {}, setKeys }) => {
     element.classList.remove("playing")
   }
 
-  let targetElement
   const handlePlayedKey = (keyboardPosition) => {
-    targetElement = document.querySelector(`#${keyboardPosition}`)
+    const targetElement = document.querySelector(`#${keyboardPosition}`)
     targetElement.classList.add("playing")
     targetElement.addEventListener("animationend", () =>
       removeAnimationFromElement(targetElement)
@@ -40,6 +39,7 @@ const Key = ({ instrument = {}, setKeys }) => {
         playInstrument(el)
       }
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [instrument])
 
   useEffect(() => {
@@ -58,6 +58,7 @@ const Key = ({ instrument = {}, setKeys }) => {
         playInstrument(el)
       }
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [instrument])
 
   return (
