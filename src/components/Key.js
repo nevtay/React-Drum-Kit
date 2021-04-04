@@ -28,12 +28,11 @@ const Key = ({ instrument = {}, setKeys }) => {
     setKeys((prev) => [keyboardPosition, ...prev])
 
   useEffect(() => {
-    // let el
     if (instrument.size === 0) {
       return
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    let el = document.querySelector(`#${instrument.keyboardPosition}p`)
+    const el = document.querySelector(`#${instrument.keyboardPosition}p`)
     document.addEventListener("keydown", (e) => {
       if (e.key === instrument.keyboardPosition) {
         handlePlayedKey(instrument.keyboardPosition)
@@ -47,7 +46,7 @@ const Key = ({ instrument = {}, setKeys }) => {
     if (instrument.size === 0) {
       return
     }
-    let el = document.querySelector(`#${instrument.keyboardPosition}p`)
+    const el = document.querySelector(`#${instrument.keyboardPosition}p`)
     document.addEventListener("click", (e) => {
       if (
         e.target.id === instrument.keyboardPosition ||
