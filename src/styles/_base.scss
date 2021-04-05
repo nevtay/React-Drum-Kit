@@ -8,6 +8,12 @@ html {
   font-size: 62.5%;
 }
 
+@media screen and (max-height: 50rem) {
+  html {
+    font-size: 37.5%;
+  }
+}
+
 body {
   font-size: 100%;
   overflow-y: hidden;
