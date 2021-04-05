@@ -18,6 +18,20 @@
   padding: 0.5rem;
 }
 
+@media screen and (max-height: 4.5rem) {
+  .instrument-single {
+    height: 5rem;
+    min-width: 5rem;
+  }
+
+  .instrument-group {
+    display: grid;
+    -moz-column-gap: 0.5rem;
+    column-gap: 0.35rem;
+    row-gap: 0.5rem;
+  }
+}
+
 @media screen and (min-width: 76.8rem) {
   .instrument-single {
     height: 10rem;
