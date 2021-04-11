@@ -5,26 +5,16 @@ import KeyHistory from "./components/KeyHistory"
 import InstrumentsContext from "./context/instruments/instrumentsContext"
 
 function App() {
-  const [instruments, setinstruments] = useState([])
   const [keys, setKeys] = useState([])
   const instrumentsContext = useContext(InstrumentsContext)
-  const { getInstruments } = instrumentsContext
-
-  /**
-   * @description fetches instruments from server
-   */
-  const fetchinstruments = async () => {
-    const res = await fetch("./db.json")
-    const data = await res.json()
-    setinstruments([...data])
-  }
+  const { fetchInstruments, instruments } = instrumentsContext
 
   /**
    * @description fetches instrument metadata
    */
   useEffect(() => {
     try {
-      fetchinstruments()
+      fetchInstruments()
     } catch (err) {
       throw new Error(err)
     }
