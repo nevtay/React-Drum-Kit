@@ -29,6 +29,7 @@ const InstrumentsState = (props) => {
     <InstrumentsContext.Provider
       value={{
         instruments: state.instruments,
+        getInstruments,
         fetchInstruments,
       }}
     >
