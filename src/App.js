@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import "./styles/main.css"
 import Keys from "./components/Keys"
 import KeyHistory from "./components/KeyHistory"
+import InstrumentsContext from "./context/instruments/instrumentsContext"
 
 function App() {
   const [instruments, setinstruments] = useState([])
   const [keys, setKeys] = useState([])
+  const instrumentsContext = useContext(InstrumentsContext)
+  const { getInstruments } = instrumentsContext
 
   /**
    * @description fetches instruments from server
