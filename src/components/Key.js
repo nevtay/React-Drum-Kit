@@ -1,7 +1,10 @@
 /* eslint react/prop-types: 0 */
-import React, { useEffect } from "react"
+import React, { useEffect, useContext } from "react"
+import KeyHistoryContext from "../context/keyHistory/keyHistoryContext"
 
-const Key = ({ instrument = {}, setKeys }) => {
+const Key = ({ instrument = {} }) => {
+  const keyHistoryContext = useContext(KeyHistoryContext)
+  const { updateKeyHistory } = keyHistoryContext
   const playInstrument = (inst) => {
     inst.currentTime = 0
     inst.play()
@@ -22,9 +25,6 @@ const Key = ({ instrument = {}, setKeys }) => {
     )
   }
 
-  const updateKeysHistory = (keyboardPosition) =>
-    setKeys((prev) => [keyboardPosition, ...prev])
-
   useEffect(() => {
     if (instrument.size === 0) {
       return
@@ -34,7 +34,7 @@ const Key = ({ instrument = {}, setKeys }) => {
     document.addEventListener("keydown", (e) => {
       if (e.key === instrument.keyboardPosition) {
         handlePlayedKey(instrument.keyboardPosition)
-        updateKeysHistory(instrument.keyboardPosition)
+        updateKeyHistory(instrument.keyboardPosition)
         playInstrument(el)
       }
     })
@@ -53,7 +53,7 @@ const Key = ({ instrument = {}, setKeys }) => {
         e.target.innerText === instrument.keyboardPosition
       ) {
         handlePlayedKey(instrument.keyboardPosition)
-        updateKeysHistory(instrument.keyboardPosition)
+        updateKeyHistory(instrument.keyboardPosition)
         playInstrument(el)
       }
     })
