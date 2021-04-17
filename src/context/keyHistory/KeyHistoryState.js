@@ -1,6 +1,6 @@
 import React, { useReducer } from "react"
 import KeyHistoryContext from "./keyHistoryContext"
-import KeyHistoryReducer from "./keyHistoryReducer"
+import keyHistoryReducer from "./keyHistoryReducer"
 import { SET_KEYS } from "./types"
 
 const KeyHistoryState = (props) => {
@@ -8,7 +8,7 @@ const KeyHistoryState = (props) => {
     keyHistory: [],
   }
 
-  const [state, dispatch] = useReducer(KeyHistoryReducer, initialState)
+  const [state, dispatch] = useReducer(keyHistoryReducer, initialState)
 
   const updateKeyHistory = (keyPressed) => {
     dispatch({
