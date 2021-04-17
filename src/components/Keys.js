@@ -1,7 +1,6 @@
 import React, { useEffect, useContext } from "react"
 import Key from "./Key"
 import InstrumentsContext from "../context/instruments/instrumentsContext"
-import KeyHistoryState from "../context/keyHistory/KeyHistoryState"
 
 const Keys = ({ setKeys }) => {
   const instrumentsContext = useContext(InstrumentsContext)
@@ -20,11 +19,9 @@ const Keys = ({ setKeys }) => {
 
   return instruments.map((instrument) => {
     return (
-      <KeyHistoryState key={instrument.id}>
-        <div>
-          <Key instrument={instrument} setKeys={setKeys} />
-        </div>
-      </KeyHistoryState>
+      <div key={instrument.id}>
+        <Key instrument={instrument} setKeys={setKeys} />
+      </div>
     )
   })
 }
