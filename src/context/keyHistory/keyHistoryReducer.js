@@ -5,7 +5,7 @@ const keyHistoryReducer = (state, action) => {
     case SET_KEYS:
       return {
         ...state,
-        keyHistory: [action.payload, ...state.keyHistory],
+        keyHistory: [action.payload, ...state.keyHistory.filter((_, idx) => idx < 9)],
       }
     default:
       return state
