@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useEffect } from "react"
 import "./styles/main.css"
 import Keys from "./components/Keys"
 import KeyHistory from "./components/KeyHistory"
