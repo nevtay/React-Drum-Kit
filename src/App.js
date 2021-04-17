@@ -2,23 +2,9 @@ import React, { useState, useEffect, useContext } from "react"
 import "./styles/main.css"
 import Keys from "./components/Keys"
 import KeyHistory from "./components/KeyHistory"
-import InstrumentsContext from "./context/instruments/instrumentsContext"
 
 function App() {
   const [keys, setKeys] = useState([])
-  const instrumentsContext = useContext(InstrumentsContext)
-  const { fetchInstruments, instruments } = instrumentsContext
-
-  /**
-   * @description fetches instrument metadata
-   */
-  useEffect(() => {
-    try {
-      fetchInstruments()
-    } catch (err) {
-      throw new Error(err)
-    }
-  }, [])
 
   /**
    * @description updates a css variable based on the innerHeight of the global window object
@@ -36,7 +22,7 @@ function App() {
     <div className="container">
       <h1 className="title">Drum Kit</h1>
       <div className="instrument-group">
-        <Keys instruments={instruments} setKeys={setKeys} />
+        <Keys setKeys={setKeys} />
       </div>
       <KeyHistory keys={keys} />
       <footer>
