@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import "./styles/main.css"
 import Keys from "./components/Keys"
 import KeyHistory from "./components/KeyHistory"
+import KeyHistoryState from "./context/keyHistory/KeyHistoryState"
 
 function App() {
-  const [keys, setKeys] = useState([])
-
   /**
    * @description updates a css variable based on the innerHeight of the global window object
    */
@@ -19,23 +18,25 @@ function App() {
   }, [])
 
   return (
-    <div className="container">
-      <h1 className="title">Drum Kit</h1>
-      <div className="instrument-group">
-        <Keys setKeys={setKeys} />
+    <KeyHistoryState>
+      <div className="container">
+        <h1 className="title">Drum Kit</h1>
+        <div className="instrument-group">
+          <Keys />
+        </div>
+        <KeyHistory />
+        <footer>
+          Icons made by{" "}
+          <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">
+            Icongeek26
+          </a>{" "}
+          from{" "}
+          <a href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
+          </a>
+        </footer>
       </div>
-      <KeyHistory keys={keys} />
-      <footer>
-        Icons made by{" "}
-        <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">
-          Icongeek26
-        </a>{" "}
-        from{" "}
-        <a href="https://www.flaticon.com/" title="Flaticon">
-          www.flaticon.com
-        </a>
-      </footer>
-    </div>
+    </KeyHistoryState>
   )
 }
 
