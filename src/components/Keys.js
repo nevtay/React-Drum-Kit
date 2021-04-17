@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react"
 import Key from "./Key"
 import InstrumentsContext from "../context/instruments/instrumentsContext"
 
-const Keys = ({ setKeys }) => {
+const Keys = () => {
   const instrumentsContext = useContext(InstrumentsContext)
   const { fetchInstruments, instruments } = instrumentsContext
 
@@ -20,7 +20,7 @@ const Keys = ({ setKeys }) => {
   return instruments.map((instrument) => {
     return (
       <div key={instrument.id}>
-        <Key instrument={instrument} setKeys={setKeys} />
+        <Key instrument={instrument} />
       </div>
     )
   })
