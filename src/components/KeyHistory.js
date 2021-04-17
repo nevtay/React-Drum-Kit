@@ -1,15 +1,18 @@
-import React from "react"
+import React, { useContext } from "react"
+import KeyHistoryContext from "../context/keyHistory/keyHistoryContext"
 
-const KeyHistory = ({ keys = [] }) => {
-  const showLast10Keys = [...keys]
-    .filter((key, i) => i < 10)
-    .reverse()
-    .join(" > ")
+const KeyHistory = () => {
+  const keyHistoryContext = useContext(KeyHistoryContext)
+
+  const { keyHistory } = keyHistoryContext
+
+  const keyHistoryToString = [...keyHistory].join(" + ")
+
   return (
     <div className="key-history-group">
       <h2 className="key-history-title">Last Ten Keys</h2>
-      {keys.length > 0 ? (
-        <p className="key-history-display">{showLast10Keys}</p>
+      {keyHistory.length > 0 ? (
+        <p className="key-history-display">{keyHistoryToString}</p>
       ) : (
         <p>Play something!</p>
       )}
