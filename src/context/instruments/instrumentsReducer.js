@@ -1,6 +1,6 @@
 import { SET_INSTRUMENTS } from "./types"
 
-export default (state, action) => {
+const instrumentsReducer = (state, action) => {
   switch (action.type) {
     case SET_INSTRUMENTS:
       return {
@@ -11,3 +11,5 @@ export default (state, action) => {
       return state
   }
 }
+
+export default instrumentsReducer
