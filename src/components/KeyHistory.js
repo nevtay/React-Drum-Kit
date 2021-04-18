@@ -16,7 +16,9 @@ const KeyHistory = () => {
       ) : (
         <p>Play something!</p>
       )}
-      <button onClick={clearKeyHistory}>Clear key history</button>
+      <button className="clear-key-history" onClick={clearKeyHistory}>
+        Clear Key History
+      </button>
     </div>
   )
 }
