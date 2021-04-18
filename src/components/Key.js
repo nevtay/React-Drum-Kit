@@ -5,6 +5,7 @@ import KeyHistoryContext from "../context/keyHistory/keyHistoryContext"
 const Key = ({ instrument = {} }) => {
   const keyHistoryContext = useContext(KeyHistoryContext)
   const { updateKeyHistory } = keyHistoryContext
+
   const playInstrument = (inst) => {
     inst.currentTime = 0
     inst.play()
