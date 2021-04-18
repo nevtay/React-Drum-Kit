@@ -4,7 +4,7 @@ import KeyHistoryContext from "../context/keyHistory/keyHistoryContext"
 const KeyHistory = () => {
   const keyHistoryContext = useContext(KeyHistoryContext)
 
-  const { keyHistory } = keyHistoryContext
+  const { keyHistory, clearKeyHistory } = keyHistoryContext
 
   const keyHistoryToString = [...keyHistory].join(" + ")
 
@@ -16,6 +16,7 @@ const KeyHistory = () => {
       ) : (
         <p>Play something!</p>
       )}
+      <button onClick={clearKeyHistory}>Clear key history</button>
     </div>
   )
 }
